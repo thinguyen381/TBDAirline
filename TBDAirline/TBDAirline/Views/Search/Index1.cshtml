@@ -1,0 +1,69 @@
+﻿@model TBDAirline.Models.SearchModel
+
+Departure: <br/>
+Date    @Model.FromDate <br/>
+From City   @Model.FromCity <br/>
+To City     @Model.ToCity <br/>
+
+<div class="container border" style="padding:20px">
+
+
+
+<table>
+    <thead>
+        <tr>
+            <td width="25%">Flight ID</td>
+             <td width="25%">Date</td>
+             <td width="25%">Price</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Flight f in @Model.DepartureFlight)
+            {
+                <tr>      
+                    <td>@f.FlightID</td>
+                    <td>@f.Date</td>
+                    <td>@f.Price</td>
+                    
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+</div>
+
+
+Return: <br/>
+Date      @Model.ToDate <br/>
+From City    @Model.ToCity <br/>
+To City     @Model.FromCity <br/>
+
+
+<div class="container border" style="padding:20px">
+
+<table>
+    <thead>
+        <tr>
+            <td width="25%">Flight ID</td>
+             <td width="25%">Date</td>
+             <td width="25%">Price</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (Flight f in @Model.ReturnFlight)
+            {
+                <tr>      
+                    <td>@f.FlightID</td>
+                    <td>@f.Date</td>
+                    <td>@f.Price</td>
+                    
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+</div>
