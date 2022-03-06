@@ -1,0 +1,39 @@
+﻿@model TBDAirline.Models.SearchModel
+
+<div class="container border" style="padding:20px">
+
+@using (Html.BeginForm("Index", "Search", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>From Date:</td>
+            <td>
+                @Html.EditorFor(Model => Model.FromDate)
+            </td>
+        </tr>
+        <tr>
+            <td>To Date:</td>
+            <td>
+                @Html.EditorFor(Model => Model.ToDate)
+            </td>
+        </tr>
+        <tr>
+            <td>From City:</td>
+            <td>
+                @Html.DropDownList("FromCity", new SelectList(Model.Cities))
+            </td>
+        </tr>
+        <tr>
+            <td>To City:</td>
+            <td>
+                @Html.DropDownList("ToCity", new SelectList(Model.Cities))
+            </td>
+        </tr>
+
+
+    </table>
+    <div>
+        <input type="submit" value="Search" />
+    </div>
+}
+</div>
