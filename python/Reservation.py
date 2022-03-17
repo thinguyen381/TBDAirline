@@ -1,6 +1,3 @@
-import Flight
-
-
 class Reservation:
     def __init__(self, flight, passenger,
                  reservation_id, price):
@@ -11,6 +8,6 @@ class Reservation:
         self.price = price
 
     def print_reservation(self):
-        print('Reservation ID: ' + self.reservation_id)
+        print('Reservation ID: ' + str(self.reservation_id))
         self.flight.print_flight()
-        print('Price: ' + self.price)
+        print('Price: ' + str(self.price))

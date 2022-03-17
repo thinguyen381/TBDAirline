@@ -1,4 +1,4 @@
-import Reservation
+from Reservation import Reservation
 
 
 class Flight:
@@ -14,5 +14,7 @@ class Flight:
         self.reservations = [Reservation(self, None, reservation, 10)
                              for reservation in range(num_reservations)]
 
-        def print_flight():
-            pass
+    def print_flight(self):
+        print('Flight number ' + str(self.flight_id) +
+              " " + self.departure_airport + ' to ' +
+              self.arrival_airport + ' at ' + str(self.departure_time))

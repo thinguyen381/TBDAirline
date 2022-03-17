@@ -1,5 +1,4 @@
-import Account
-import Reservation
+from Account import Account
 
 
 class Passenger:
@@ -11,21 +10,21 @@ class Passenger:
         self.phone_number = phone_number
 
         self.num_reservations = 0
-        self.reservations = None
+        self.reservations = []
 
     def print_passenger(self):
         print("" + self.first_name + " " + self.last_name + "\n" +
               'Phone Number: ' + self.phone_number + '\n' +
               'Email: ' + self.passenger_account.email + '' + '\n' +
-              self.num_reservations + 'Reservations:\n')
+              str(self.num_reservations) + ' Reservation(s):\n')
 
         for reservation in self.reservations:
-            self.reservations[reservation].print_reservation
+            reservation.print_reservation()
             print('\n')
 
     def book_reservation(self, reservation):
         if reservation.booking_status == 0:
-            self.reservations[self.num_reservations] = reservation
+            self.reservations.append(reservation)
             reservation.booking_status = 1
             self.num_reservations += 1
         else:
