@@ -1,10 +1,12 @@
+import datetime
 from Reservation import Reservation
 
 
 class Flight:
-    def __init__(self, flight_id, departure, arrival,
+    def __init__(self, flight_id, airline, departure, arrival,
                  departure_time, arrival_time, num_reservations):
         self.flight_id = flight_id
+        self.airline = airline
         self.departure_airport = departure
         self.arrival_airport = arrival
         self.departure_time = departure_time
