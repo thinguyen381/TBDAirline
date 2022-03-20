@@ -25,5 +25,7 @@ def main():
     TBDAirline.create_flight(my_airport.hangers[0], that_airport.hangers[0])
     TBDAirline.print()
 
+    codi_yost.book_reservation(TBDAirline.flights[0].reservations[0])
+    codi_yost.print()
 
 main()

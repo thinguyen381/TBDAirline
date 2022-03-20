@@ -16,9 +16,8 @@ Classes:
 	Airport - Handles Hangers
 
 	#TODO:
+	ERROR: DockingReservation.time attribute not being recognized.
 	implement proper datetime across project.
-	finish writing print statements.
-	write up a test main.
 	project wide error handling.
 
     I will re-create UML and Use Case Diagrams once I can confirm that the objects are in a proper status.
