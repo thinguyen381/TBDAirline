@@ -1,11 +1,10 @@
 # DockingReservation a schedule-able unit of time within a hanger
 import datetime
-from Hanger import Hanger
 
 
 class DockingReservation:
 
-    def __init__(self, time, hanger, airport):
+    def __init__(self, time, hanger):
         # Reservation status:
         #   0 = reservation open
         #   1 = reservation booked
@@ -13,10 +12,9 @@ class DockingReservation:
         self.flight = None
         self.time = time
         self.hanger = hanger
-        self.airport = airport
 
     def print(self):
-        pass
+        print('Hanger: ' + str(self.hanger.hanger_id) + '\tTime: ' + str(self.time))
 
     def reserve_dock(self, flight):
         self.flight = flight

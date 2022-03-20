@@ -12,7 +12,7 @@ class Passenger:
         self.num_reservations = 0
         self.reservations = []
 
-    def print_passenger(self):
+    def print(self):
         print("" + self.first_name + " " + self.last_name + "\n" +
               'Phone Number: ' + self.phone_number + '\n' +
               'Email: ' + self.passenger_account.email + '' + '\n' +
