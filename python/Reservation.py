@@ -7,7 +7,7 @@ class Reservation:
         self.booking_status = 0
         self.price = price
 
-    def print_reservation(self):
+    def print(self):
         print('Reservation ID: ' + str(self.reservation_id))
-        self.flight.print_flight()
+        self.flight.print()
         print('Price: ' + str(self.price))

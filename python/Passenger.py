@@ -19,7 +19,7 @@ class Passenger:
               str(self.num_reservations) + ' Reservation(s):\n')
 
         for reservation in self.reservations:
-            reservation.print_reservation()
+            reservation.print()
             print('\n')
 
     def book_reservation(self, reservation):

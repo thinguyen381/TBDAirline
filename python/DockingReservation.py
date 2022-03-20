@@ -5,7 +5,7 @@ from Hanger import Hanger
 
 class DockingReservation:
 
-    def __init__(self, time, hanger):
+    def __init__(self, time, hanger, airport):
         # Reservation status:
         #   0 = reservation open
         #   1 = reservation booked
@@ -13,6 +13,10 @@ class DockingReservation:
         self.flight = None
         self.time = time
         self.hanger = hanger
+        self.airport = airport
+
+    def print(self):
+        pass
 
     def reserve_dock(self, flight):
         self.flight = flight
