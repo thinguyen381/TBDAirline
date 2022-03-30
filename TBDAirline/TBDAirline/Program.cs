@@ -5,6 +5,23 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Line 10-22: enable session and cookies
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(3600);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+builder.Services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
+{
+    options.Cookie.Name = "MyCookieAuth";
+});
+
+
 var cn = builder.Configuration.GetConnectionString("Project1");
 builder.Services.AddDbContext<ApplicationDbContext>(
         options => options.UseSqlServer(cn));
@@ -25,7 +42,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication(); // Add before UseAuthorization
 app.UseAuthorization();
+
+app.UseSession();// Added after UseAuthorization
 
 app.MapControllerRoute(
     name: "default",
