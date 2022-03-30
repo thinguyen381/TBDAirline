@@ -9,11 +9,14 @@ namespace TBDAirline.Models
         
         [DataType(DataType.Date)]
         public DateTime ToDate { get; set; }
+        
         public string FromCity { get; set; }
         public string ToCity { get; set; }
         public List<string> Cities { get; set; }
-
         public List<Flight> DepartureFlight { get; set; }
         public List<Flight> ReturnFlight { get; set; }
+        public int DepartFlightID { get; set; }
+        public int ReturnFlightID { get; set; }
+
     }
 }
