@@ -12,8 +12,9 @@ class Airline:
         self.flights = []
 
     def create_flight(self, departure, arrival):
-
-        self.flights.append(Flight(self.num_flights, self, departure, arrival, 5))
+        # I think the error in logic has to do with this line arrival.time and departure.time not defined
+        # Flight creation does not implement departure/arrival times
+        self.flights.append(Flight(self.num_flights, self, departure, 1, arrival, 2, 5))
         self.num_flights += 1
 
     def print(self):

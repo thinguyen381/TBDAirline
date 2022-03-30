@@ -19,3 +19,7 @@ class DockingReservation:
     def reserve_dock(self, flight):
         self.flight = flight
         self.reservation_status = 1
+
+    def clear_reservation(self):
+        self.flight = None
+        self.reservation_status = 0
