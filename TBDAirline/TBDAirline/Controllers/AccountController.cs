@@ -67,7 +67,7 @@ namespace TBDAirline.Controllers
                 }
                 else
                 {
-                    
+                    // TODO: Fix error
                     List<Claim> claims = new List<Claim>();
                     claims.Add(new Claim(ClaimTypes.Name, accountModel.Account.UserName));
                     claims.Add(new Claim("AccountID", existingAccount.AccountID.ToString()));
