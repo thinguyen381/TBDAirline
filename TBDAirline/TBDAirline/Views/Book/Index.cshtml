@@ -1,0 +1,85 @@
+﻿@model TBDAirline.Models.Book
+
+
+<h3>Departs:</h3>
+   <div>
+        From:   @Model.FromCity <br />
+        To:     @Model.ToCity <br />
+    </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-1">Flight ID</th>
+            <th class="col-1">Departure Time</th>
+            <th class="col-1">Arrival Time</th>
+            <th class="col-1">Duration</th>
+            <th class="col-1">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="col-1">@Html.DisplayFor(model => model.DepartFlight.FlightID)</td>
+            <td class="col-1">@Html.DisplayFor(model => model.DepartFlight.DepartureTime)</td>
+            <td class="col-1">@Html.DisplayFor(model => model.DepartFlight.ArrivalTime)</td>
+            <td class="col-1">@Html.DisplayFor(model => model.DepartFlight.Duration)</td>
+            <td class="col-1">@Html.DisplayFor(model => model.DepartFlight.Price)</td>
+        </tr>
+    </tbody>
+</table>
+
+@if (Model.ReturnFlight != null)
+{
+    <h3>Returns:</h3>
+       <div>
+            From:   @Model.ToCity <br />
+            To:     @Model.FromCity <br />
+        </div>
+    <table class="table">
+        <thead>
+            <tr>
+             <th class="col-1">Flight ID</th>
+            <th class="col-1">Departure Time</th>
+            <th class="col-1">Arrival Time</th>
+            <th class="col-1">Duration</th>
+            <th class="col-1">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-1">@Html.DisplayFor(model => model.ReturnFlight.FlightID)</td>
+                <td class="col-1">@Html.DisplayFor(model => model.ReturnFlight.DepartureTime)</td>
+                <td class="col-1">@Html.DisplayFor(model => model.ReturnFlight.ArrivalTime)</td>
+                <td class="col-1">@Html.DisplayFor(model => model.ReturnFlight.Duration)</td>
+                <td class="col-1">@Html.DisplayFor(model => model.ReturnFlight.Price)</td>
+            </tr>
+        </tbody>
+
+    </table>
+}
+
+
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <th class="col-1">Total:</th>
+            <th class="col-1">@Html.DisplayFor(model => model.TotalAmount)</th>
+        </tr>
+    </tbody>
+</table>
+
+@*<form asp-controller="Book" asp-action="LoginAndBook">
+    <input type="text" hidden="hidden" value="@Model.DepartFlight.FlightID" name="DepartFlightID"/>
+    <input type="text" hidden="hidden" value="@Model.ReturnFlight?.FlightID" name="ReturnFlightID"/>
+    <input type="text" hidden="hidden" value="false" name="loginFirst"/>
+    <input type="submit" value="Checkout as Guest" class="btn btn-primary"/>
+</form>*@
+
+<br/>
+
+<form asp-controller="Book" asp-action="LoginAndBook">
+    <input type="text" hidden="hidden" value="@Model.DepartFlight.FlightID" name="DepartFlightID"/>
+    <input type="text" hidden="hidden" value="@Model.ReturnFlight?.FlightID" name="ReturnFlightID"/>
+     <input type="text" hidden="hidden" value="true" name="loginFirst"/>
+    <input type="submit" value="Confirm" class="btn btn-primary"/>
+</form>
+
