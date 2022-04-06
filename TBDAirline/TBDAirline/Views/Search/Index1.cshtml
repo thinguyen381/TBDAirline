@@ -9,11 +9,18 @@
 @using (@Html.BeginForm("Index", "Book", FormMethod.Post))
 {
 
-    <div>
+@*    <div>
         Departure: <br />
-@*        Date   @Model.FromDate <br />
-*@        From City   @Model.FromCity <br />
+        Date   @Model.FromDate <br />
+       From City   @Model.FromCity <br />
         To City     @Model.ToCity <br />
+    </div>
+*@ 
+
+    <h3>Departing Flights:</h3>
+   <div>
+        From:   @Model.FromCity <br />
+        To:     @Model.ToCity <br />
     </div>
 
 
@@ -48,15 +55,22 @@
             </tbody>
         </table>
     </div>
-
-    <div>
-        Return: <br />
-@*        Date      @Model.ToDate <br />
-*@        From City    @Model.ToCity <br />
+        <br />
+        <br />
+   @*   <div>
+      
+       
+      Return: <br />
+        Date      @Model.ToDate <br />
+      From City    @Model.ToCity <br />
         To City     @Model.FromCity <br />
     </div>
-
-
+*@  
+    <h3>Returning Flights:</h3>
+   <div>
+        From:   @Model.ToCity <br />
+        To:     @Model.FromCity <br />
+    </div>
 
     <div class="container border" style="padding:20px">
 
