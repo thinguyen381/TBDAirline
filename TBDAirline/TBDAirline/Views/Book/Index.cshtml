@@ -22,7 +22,7 @@
             <td class="col-1">@Html.DisplayFor(model => model.DepartFlight.DepartureTime)</td>
             <td class="col-1">@Html.DisplayFor(model => model.DepartFlight.ArrivalTime)</td>
             <td class="col-1">@Html.DisplayFor(model => model.DepartFlight.Duration)</td>
-            <td class="col-1">@Html.DisplayFor(model => model.DepartFlight.Price)</td>
+            <td class="col-1">$@Html.DisplayFor(model => model.DepartFlight.Price)</td>
         </tr>
     </tbody>
 </table>
@@ -50,7 +50,7 @@
                 <td class="col-1">@Html.DisplayFor(model => model.ReturnFlight.DepartureTime)</td>
                 <td class="col-1">@Html.DisplayFor(model => model.ReturnFlight.ArrivalTime)</td>
                 <td class="col-1">@Html.DisplayFor(model => model.ReturnFlight.Duration)</td>
-                <td class="col-1">@Html.DisplayFor(model => model.ReturnFlight.Price)</td>
+                <td class="col-1">$@Html.DisplayFor(model => model.ReturnFlight.Price)</td>
             </tr>
         </tbody>
 
@@ -62,7 +62,7 @@
     <tbody>
         <tr>
             <th class="col-1">Total:</th>
-            <th class="col-1">@Html.DisplayFor(model => model.TotalAmount)</th>
+            <th class="col-1">$@Html.DisplayFor(model => model.TotalAmount)</th>
         </tr>
     </tbody>
 </table>

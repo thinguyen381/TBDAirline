@@ -9,11 +9,18 @@
 @using (@Html.BeginForm("Index", "Book", FormMethod.Post))
 {
 
-    <div>
+@*    <div>
         Departure: <br />
         Date   @Model.FromDate <br />
-        From City   @Model.FromCity <br />
+       From City   @Model.FromCity <br />
         To City     @Model.ToCity <br />
+    </div>
+*@ 
+
+    <h3>Departing Flights:</h3>
+   <div>
+        From:   @Model.FromCity <br />
+        To:     @Model.ToCity <br />
     </div>
 
 
@@ -38,7 +45,7 @@
                             <td>@f.FlightID</td>
                             <td>@f.DepartureTime</td>
                             <td>@f.ArrivalTime</td>
-                            <td>@f.Price</td>
+                            <td>$@f.Price</td>
                             <td>@f.Duration</td>
                             <td><input name="DepartFlightID" type="radio" value="@f.FlightID" /></td>
 
@@ -48,15 +55,22 @@
             </tbody>
         </table>
     </div>
-
-    <div>
-        Return: <br />
+        <br />
+        <br />
+   @*   <div>
+      
+       
+      Return: <br />
         Date      @Model.ToDate <br />
-        From City    @Model.ToCity <br />
+      From City    @Model.ToCity <br />
         To City     @Model.FromCity <br />
     </div>
-
-
+*@  
+    <h3>Returning Flights:</h3>
+   <div>
+        From:   @Model.ToCity <br />
+        To:     @Model.FromCity <br />
+    </div>
 
     <div class="container border" style="padding:20px">
 
@@ -79,7 +93,7 @@
                             <td>@f.FlightID</td>
                             <td>@f.DepartureTime</td>
                             <td>@f.ArrivalTime</td>
-                            <td>@f.Price</td>
+                            <td>$@f.Price</td>
                             <td>@f.Duration</td>
                             <td><input name="ReturnFlightID" type="radio" value="@f.FlightID" /></td>
                         </tr>

@@ -43,8 +43,13 @@ namespace TBDAirline.Controllers
             int fromID = _context.Airport.Where(f => f.AirportName == searchModel.FromCity).First().AirportID;
             int toID = _context.Airport.Where(f => f.AirportName == searchModel.ToCity).First().AirportID;
 
-            List<Flight> DepartureFlight = _context.Flight.Where(f => f.FromID == fromID && f.ToID== toID && f.DepartureTime > searchModel.FromDate && f.DepartureTime < searchModel.FromDate.AddDays(1) ).ToList();
-            List<Flight> ReturnFlight = _context.Flight.Where(f => f.FromID == toID && f.ToID== fromID && f.DepartureTime > searchModel.ToDate && f.DepartureTime < searchModel.ToDate.AddDays(1)).ToList();
+            List<Flight> DepartureFlight = _context.Flight.Where(f => f.FromID == fromID && f.ToID== toID 
+                                                            && f.DepartureTime > searchModel.FromDate 
+                                                            && f.DepartureTime < searchModel.FromDate.AddDays(1) ).ToList();
+
+            List<Flight> ReturnFlight = _context.Flight.Where(f => f.FromID == toID && f.ToID== fromID 
+                                                            && f.DepartureTime > searchModel.ToDate 
+                                                            && f.DepartureTime < searchModel.ToDate.AddDays(1)).ToList();
             searchModel.DepartureFlight = DepartureFlight;
             searchModel.ReturnFlight = ReturnFlight;
 
