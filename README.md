@@ -35,7 +35,8 @@ Contributers:
           The current flow can be adjusted later because for now I want to make it easiest to implement
           A simple image was added as background
           A working version of the website has been published at http://tbdairline.azurewebsites.net
-
+          (If you go to the website, try searh for flights, register and log in. You would be stopped at Payment page as I have not implemented it yet)
+  
   Currrent flow:  
           Search for flights - Select flights - Confirm booking flights -
           Log in (if account has already existed) or Register a new account then Log in -
