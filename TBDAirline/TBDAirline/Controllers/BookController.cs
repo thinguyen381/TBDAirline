@@ -26,8 +26,7 @@ namespace TBDAirline.Controllers
                 TotalAmount = (departFlight?.Price ?? 0) + (returnFlight?.Price ?? 0),
                 FromCity = fromCity,
                 ToCity = toCity,
-
-        };
+            };
 
             return View(book);
         }

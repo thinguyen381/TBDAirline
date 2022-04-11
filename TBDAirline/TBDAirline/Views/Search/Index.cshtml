@@ -16,7 +16,8 @@
         <tr>
             <td>To Date:</td>
             <td>
-                @Html.EditorFor(Model => Model.ToDate)
+                <!-- @Html.EditorFor(Model => Model.ToDate) -->
+                @Html.EditorFor(Model => DateTime.Compare(Model.FromDate, Model.ToDate) > -1)
             </td>
         </tr>
         <tr>

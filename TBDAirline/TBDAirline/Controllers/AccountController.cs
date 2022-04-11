@@ -25,7 +25,7 @@ namespace TBDAirline.Controllers
                 // Ask for another user name when typed userName has been already existing
                 if (existingAccount != null)
                 {
-                    accountModel.Error = "Please choose another username";
+                    accountModel.Error = "User Name or Password is not correct";
                     accountModel.Success = false;
                     return View(accountModel);
                 }
