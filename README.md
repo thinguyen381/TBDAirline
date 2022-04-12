@@ -42,3 +42,9 @@ Contributers:
           Log in (if account has already existed) or Register a new account then Log in -
           Payment - Reservation confirmed
    
+ *** Updated Apr 12:
+All controllers are working - Search Controller,  Book Controlller,    Home Controller,     Account Controller,  Payment Controller,   Reservation Controller
+ 
+I also added 1 more controller which is Tracking Controller. It does a simple task that receives tracking number and shows reservation's infomation.
+
+Notes: Try the published website if you can't launch it from the code. 
