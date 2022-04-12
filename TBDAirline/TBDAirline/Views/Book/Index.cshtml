@@ -79,7 +79,7 @@
 <form asp-controller="Book" asp-action="LoginAndBook">
     <input type="text" hidden="hidden" value="@Model.DepartFlight.FlightID" name="DepartFlightID"/>
     <input type="text" hidden="hidden" value="@Model.ReturnFlight?.FlightID" name="ReturnFlightID"/>
-     <input type="text" hidden="hidden" value="true" name="loginFirst"/>
+    <input type="text" hidden="hidden" value="@Model.TotalAmount" name="TotalAmount"/>
     <input type="submit" value="Confirm" class="btn btn-primary"/>
 </form>
 
