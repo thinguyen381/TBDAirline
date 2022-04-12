@@ -43,8 +43,10 @@ Contributers:
           Payment - Reservation confirmed
    
  *** Updated Apr 12:
-All controllers are working - Search Controller,  Book Controlller,    Home Controller,     Account Controller,  Payment Controller,   Reservation Controller
- 
+What are working? - Search Controller,  Book Controlller,    Home Controller,     Account Controller,  Payment Controller,   Reservation Controller
+
+What is next? - Report Controller (will receive a FlightID then show a list of passenger in that flight) 
+
 I also added 1 more controller which is Tracking Controller. It does a simple task that receives tracking number and shows reservation's infomation.
 
-Notes: Try the published website if you can't launch it from the code. 
+Notes: You can try the published website if you can't launch it from the Visual studio.
