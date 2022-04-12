@@ -31,14 +31,17 @@ namespace TBDAirline.Controllers
             return View(book);
         }
 
-        public IActionResult LoginAndBook(int DepartFlightID, int ReturnFlightID, bool loginFirst)
+        public IActionResult LoginAndBook(int DepartFlightID, int ReturnFlightID, decimal TotalAmount)
         {
             HttpContext.Session.SetInt32("DepartFlightID", DepartFlightID);
             HttpContext.Session.SetInt32("ReturnFlightID", ReturnFlightID);
+            HttpContext.Session.SetString("TotalAmount", TotalAmount.ToString());
 
+            if (HttpContext.User.Identity.IsAuthenticated) return RedirectToAction("Index", "Passenger");
+            else return RedirectToAction("Login", "Account");
 
             //if (loginFirst)
-                return RedirectToAction("Login", "Account");
+            //return RedirectToAction("Login", "Account");
             //else
                 //return RedirectToAction("Index", "Payment");
         }

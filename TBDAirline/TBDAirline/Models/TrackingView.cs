@@ -7,6 +7,9 @@
         public Guid TrackingID { get; set; }
         public string From { get; set; }
         public string To { get; set; }
-        public bool IsEmailSent { get; set; }
+
+        public Passenger Passenger { get; set; }   
+        public Payment Payment { get; set; }   
+
     }
 }

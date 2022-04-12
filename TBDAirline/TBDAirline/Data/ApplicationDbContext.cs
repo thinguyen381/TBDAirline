@@ -14,7 +14,7 @@ namespace TBDAirline.Data
         public DbSet<Payment> Payment { get; set; }
         public DbSet<Reservation> Reservation { get; set; }
         public DbSet<Account> Account { get; set; }
-        public DbSet<Account> Passenger { get; set; }
+        public DbSet<Passenger> Passenger { get; set; }
 
     }
 }

@@ -71,6 +71,7 @@ namespace TBDAirline.Controllers
                     List<Claim> claims = new List<Claim>();
                     claims.Add(new Claim(ClaimTypes.Name, accountModel.Account.UserName));
                     claims.Add(new Claim("AccountID", existingAccount.AccountID.ToString()));
+                    claims.Add(new Claim("IsAdmin", existingAccount.IsAdmin? "true": "false"));
 
                     ClaimsIdentity identity = new ClaimsIdentity(claims, "MyCookieAuth");
                     ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(identity);
@@ -80,7 +81,7 @@ namespace TBDAirline.Controllers
                     // Session is from BookController where flights have been selected
                     if (this.HttpContext.Session.Keys.Contains("DepartFlightID"))
                     {
-                        return RedirectToAction("Index", "Payment");
+                        return RedirectToAction("Index", "Passenger");
                     }
 
                     // Login before searching
