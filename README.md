@@ -50,3 +50,17 @@ What is next? - Report Controller (will receive a FlightID then show a list of p
 I also added 1 more controller which is Tracking Controller. It does a simple task that receives tracking number and shows reservation's infomation.
 
 Notes: You can try the published website if you can't launch it from the Visual studio.
+
+TODO: 
+  Make dates that are not possible unselectable
+    departing flight cannot be scheduled for any date passed today
+    returning flight / arrival flight date and time cannot happen before departing
+
+  Error Handling
+    Clicking book without selecting flights causes a crash
+    Can select times that shouldn't be selectable
+    selecting ONLY a departing flight causes a crash
+    selecting ONLY a return flight causes a crash
+  
+  Adding round trip/one way option to flight schedule
+    one way flight will not show a return flight.
