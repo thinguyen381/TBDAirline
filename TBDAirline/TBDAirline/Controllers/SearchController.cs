@@ -16,7 +16,7 @@ namespace TBDAirline.Controllers
         public IActionResult Index()
         {
             SearchModel ob1 = new SearchModel();
-            ob1.FromDate = DateTime.Now;
+ob1.FromDate = DateTime.Now;
             ob1.ToDate = DateTime.Now;
             ob1.Cities = new List<string> { "" };
             List<Airport> Airports = _context.Airport.ToList();
