@@ -4,39 +4,76 @@
 @*Search Function*@
 <div class="container border" style="padding:20px">
 
-@using (Html.BeginForm("Index", "Search", FormMethod.Post))
-{
-    <table>
-        <tr>
-            <td>From Date:</td>
-            <td>
-                @Html.EditorFor(Model => Model.FromDate)
-            </td>
-        </tr>
-        <tr>
-            <td>To Date:</td>
-            <td>
-                @Html.EditorFor(Model => Model.ToDate)
-                
-            </td>
-        </tr>
-        <tr>
-            <td>From City:</td>
-            <td>
-                @Html.DropDownList("FromCity", new SelectList(Model.Cities))
-            </td>
-        </tr>
-        <tr>
-            <td>To City:</td>
-            <td>
-                @Html.DropDownList("ToCity", new SelectList(Model.Cities))
-            </td>
-        </tr>
+ @using (Html.BeginForm("Index", "Search", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>Departure Date:</td>
+                <td>
+                    @Html.EditorFor(Model => Model.FromDate)
+                </td>
+            </tr>
+            <tr>
+                <td>Returning Date:</td>
+                <td>
+                    @Html.EditorFor(Model => Model.ToDate)
+                </td>
+            </tr>
+            <tr>
+                <td>From City:</td>
+                <td>
+                    @Html.DropDownList("FromCity", new SelectList(Model.Cities))
+                </td>
+            </tr>
+            <tr>
+                <td>To City:</td>
+                <td>
+                    @Html.DropDownList("ToCity", new SelectList(Model.Cities))
+                </td>
+            </tr>
 
 
-    </table>
-    <div>
-        <input type="submit" value="Search" />
-    </div>
-}
+        </table>
+        <div>
+            <input type="submit" value="Search" />
+        </div>
+    }
 </div>
+
+@*Error handling*@
+@if (@Model.isError)
+{
+    if (@Model.FromDate < DateTime.Now.AddDays(-1) || @Model.ToDate < @Model.FromDate || @Model.FromCity == @Model.ToCity)
+    {
+        if (@Model.FromDate < DateTime.Now.AddDays(-1))
+        {
+            <div>- Departure date should not be in the past.</div>
+        }
+        if (@Model.ToDate < @Model.FromDate)
+        {
+            <div>- Returning date should be after Departure date.</div>
+        }
+        if (@Model.FromCity == @Model.ToCity)
+        {
+            <div>- Same airports selected</div>
+        }
+
+    }
+
+    else
+    {
+        if (@Model.DepartureFlight.FirstOrDefault() == null && @Model.ReturnFlight.FirstOrDefault() == null)
+        {
+            <div>There is no flights for selected dates.</div>
+        }
+        else if (@Model.DepartureFlight.FirstOrDefault() != null && @Model.ReturnFlight.FirstOrDefault() == null)
+        {
+            <div>There is no flights for selected returning dates</div>
+        }
+        else if (@Model.DepartureFlight.FirstOrDefault() == null && @Model.ReturnFlight.FirstOrDefault() != null)
+        {
+            <div>There is no flights for selected departure dates</div>
+        }
+
+    }
+}
