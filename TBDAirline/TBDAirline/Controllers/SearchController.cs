@@ -16,9 +16,9 @@ namespace TBDAirline.Controllers
         public IActionResult Index()
         {
             SearchModel ob1 = new SearchModel();
-            ob1.FromDate=DateTime.Now;
-            ob1.ToDate=DateTime.Now;
-            ob1.Cities = new List<string> {""};
+            ob1.FromDate = DateTime.Now;
+            ob1.ToDate = DateTime.Now;
+            ob1.Cities = new List<string> { "" };
             List<Airport> Airports = _context.Airport.ToList();
             foreach (Airport airport in Airports)
             {
@@ -34,7 +34,7 @@ namespace TBDAirline.Controllers
             //return View(searchModel);
         }
 
-      // Search Method
+        // Search Method
         [HttpPost]
         public IActionResult Index(SearchModel searchModel)
         {
@@ -43,17 +43,32 @@ namespace TBDAirline.Controllers
             int fromID = _context.Airport.Where(f => f.AirportName == searchModel.FromCity).First().AirportID;
             int toID = _context.Airport.Where(f => f.AirportName == searchModel.ToCity).First().AirportID;
 
-            List<Flight> DepartureFlight = _context.Flight.Where(f => f.FromID == fromID && f.ToID== toID 
-                                                            && f.DepartureTime > searchModel.FromDate 
-                                                            && f.DepartureTime < searchModel.FromDate.AddDays(1) ).ToList();
+            List<Flight> DepartureFlight = _context.Flight.Where(f => f.FromID == fromID && f.ToID == toID
+                                                            && f.DepartureTime > searchModel.FromDate
+                                                            && f.DepartureTime < searchModel.FromDate.AddDays(1)).ToList();
 
-            List<Flight> ReturnFlight = _context.Flight.Where(f => f.FromID == toID && f.ToID== fromID 
-                                                            && f.DepartureTime > searchModel.ToDate 
+            List<Flight> ReturnFlight = _context.Flight.Where(f => f.FromID == toID && f.ToID == fromID
+                                                            && f.DepartureTime > searchModel.ToDate
                                                             && f.DepartureTime < searchModel.ToDate.AddDays(1)).ToList();
             searchModel.DepartureFlight = DepartureFlight;
             searchModel.ReturnFlight = ReturnFlight;
 
-            
+            //Error handling
+            if (searchModel.DepartureFlight.FirstOrDefault() == null || searchModel.ReturnFlight.FirstOrDefault() == null
+                || searchModel.FromDate < DateTime.Now.AddDays(-1) || searchModel.ToDate < searchModel.FromDate)
+            {
+                searchModel.isError = true;
+                searchModel.Cities = new List<string> { "" };
+                List<Airport> Airports = _context.Airport.ToList();
+                foreach (Airport airport in Airports)
+                {
+                    searchModel.Cities.Add(airport.AirportName);
+                }
+                return View("Index", searchModel);
+            }
+
+
+
             return View("Index1", searchModel);
         }
 

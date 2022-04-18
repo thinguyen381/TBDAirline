@@ -18,5 +18,6 @@ namespace TBDAirline.Models
         public int DepartFlightID { get; set; }
         public int ReturnFlightID { get; set; }
 
+        public bool isError { get; set; }
     }
 }

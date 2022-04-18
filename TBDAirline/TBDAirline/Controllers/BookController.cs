@@ -11,8 +11,13 @@ namespace TBDAirline.Controllers
         {
             _context = context;
         }
+
+
+
         public IActionResult Index(int? DepartFlightID, int? ReturnFlightID)
         {
+            
+
             Flight departFlight = DepartFlightID != null ? _context.Flight.First(f => f.FlightID == DepartFlightID) : null;
             Flight returnFlight = ReturnFlightID != null ? _context.Flight.First(f => f.FlightID == ReturnFlightID) : null;
             string fromCity = _context.Airport.Where(f => f.AirportID == departFlight.FromID).First().AirportName.ToString();
@@ -26,8 +31,7 @@ namespace TBDAirline.Controllers
                 TotalAmount = (departFlight?.Price ?? 0) + (returnFlight?.Price ?? 0),
                 FromCity = fromCity,
                 ToCity = toCity,
-
-        };
+            };
 
             return View(book);
         }
@@ -40,6 +44,8 @@ namespace TBDAirline.Controllers
 
             if (HttpContext.User.Identity.IsAuthenticated) return RedirectToAction("Index", "Passenger");
             else return RedirectToAction("Login", "Account");
+
+
 
             //if (loginFirst)
             //return RedirectToAction("Login", "Account");
