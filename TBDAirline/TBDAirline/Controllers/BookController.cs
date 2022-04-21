@@ -13,7 +13,12 @@ namespace TBDAirline.Controllers
         }
 
 
-
+        /// <summary>
+        /// Index Creates a booking using two provided flights and adds it to the database
+        /// </summary>
+        /// <param name="DepartFlightID"></param>
+        /// <param name="ReturnFlightID"></param>
+        /// <returns>View()</returns>
         public IActionResult Index(int? DepartFlightID, int? ReturnFlightID)
         {
             
@@ -35,7 +40,13 @@ namespace TBDAirline.Controllers
 
             return View(book);
         }
-
+        /// <summary>
+        /// LognAndBook redirects a user to the Login page and books the flight]       
+        /// </summary>
+        /// <param name="DepartFlightID"></param>
+        /// <param name="ReturnFlightID"></param>
+        /// <param name="TotalAmount"></param>
+        /// <returns>View()</returns>
         public IActionResult LoginAndBook(int DepartFlightID, int ReturnFlightID, decimal TotalAmount)
         {
             HttpContext.Session.SetInt32("DepartFlightID", DepartFlightID);

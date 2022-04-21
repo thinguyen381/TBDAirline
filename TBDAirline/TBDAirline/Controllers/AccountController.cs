@@ -13,6 +13,11 @@ namespace TBDAirline.Controllers
         {
             _context = context;
         }
+        /// <summary>
+        /// Register creates a new account in the database
+        /// </summary>
+        /// <param name="AccountView"></param>
+        /// <returns>View()</returns>
         public IActionResult Register(AccountView accountModel)
         {
 
@@ -48,7 +53,11 @@ namespace TBDAirline.Controllers
 
             return View();
         }
-
+        /// <summary>
+        /// Login logs user into an already created account
+        /// </summary>
+        /// <param name="AccountView"></param>
+        /// <returns>View()</returns>
         public async Task<IActionResult> Login(AccountView accountModel)
         {
 
@@ -95,7 +104,11 @@ namespace TBDAirline.Controllers
 
 
 
-
+        /// <summary>
+        /// Logout directs user to home page and logs out of an account they were previously logged into
+        /// </summary>
+        /// <param name="AccountView"></param>
+        /// <returns>View()</returns>
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync("MyCookieAuth");
