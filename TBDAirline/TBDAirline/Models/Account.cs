@@ -1,5 +1,9 @@
 ﻿namespace TBDAirline.Models
 {
+    ///<summary>
+    /// Holds security information for Customers.
+    /// Admin have additional privlage of creating filghts and reservations
+    ///</summary>
     public class Account
     {
         public int AccountID { get; set; }

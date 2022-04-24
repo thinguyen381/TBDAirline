@@ -11,6 +11,11 @@ namespace TBDAirline.Controllers
         {
             _context = context;
         }
+        /// <summary>
+        /// Creates a tracking ID, attaches ID to flight reservations.
+        /// </summary>
+        /// <param name="Guid"></param>
+        /// <return>View</return>
         public IActionResult Index(Guid? trackingID)
         {
 
