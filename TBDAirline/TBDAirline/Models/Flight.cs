@@ -1,5 +1,9 @@
 ﻿namespace TBDAirline.Models
 {
+    /// <summary>
+    /// Flight contains all the important attributes related a flight.
+    /// Flight is used in conjuntion with other data types to construct a reservation in Book
+    /// </summary>
     public class Flight
     {
         public int FlightID { get; set; }
