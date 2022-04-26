@@ -2,6 +2,9 @@
 
 namespace TBDAirline.Models
 {
+    /// <summary>
+    /// Search Model is used to search for flights and reservations within the database.
+    /// </summary>
     public class SearchModel
     {
         [DataType(DataType.Date)]

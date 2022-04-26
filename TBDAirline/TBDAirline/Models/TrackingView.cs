@@ -1,5 +1,8 @@
 ﻿namespace TBDAirline.Models
 {
+    /// <summary>
+    /// Tracks a users flight reservation.
+    /// </summary>
     public class TrackingView
     {
         public Flight DepartureFlight { get; set; }

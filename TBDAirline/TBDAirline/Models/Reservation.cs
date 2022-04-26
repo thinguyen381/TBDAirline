@@ -1,5 +1,8 @@
 ﻿namespace TBDAirline.Models
 {
+    /// <summary>
+    /// Reservation contains all information reguarding an account owned reservation.
+    /// </summary>
     public class Reservation
     {
         public int ReservationID { get; set; }
