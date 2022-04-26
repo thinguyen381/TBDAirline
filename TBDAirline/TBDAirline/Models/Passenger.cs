@@ -1,7 +1,7 @@
 ﻿namespace TBDAirline.Models
 {
     /// <summary>
-    /// Passenger contains all impoirtant information pertaining to a passenger
+    /// Passenger contains all important information pertaining to a passenger
     /// Used in booking and reports.
     /// </summary>
     public class Passenger
