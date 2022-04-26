@@ -1,8 +1,9 @@
 ﻿namespace TBDAirline.Models
 {
     /// <summary>
-    /// Book collects data types from the database to create reservations.
+    /// Book collects data types from the database to create open reservations.
     /// To/From City attributes are obtained from Depart/Return flight information
+    /// Book is the product sold.
     /// </summary>
     public class Book
     {
