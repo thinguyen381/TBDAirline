@@ -43,6 +43,7 @@ namespace TBDAirline.Controllers
                 DepartFlightID = this.HttpContext.Session.GetInt32("DepartFlightID"),
                 ReturnFlightID = this.HttpContext.Session.GetInt32("ReturnFlightID"),
                 AccountID = accountID,
+                isCanceled = false
 
             };
             _context.Add(newReservation);
@@ -50,8 +51,8 @@ namespace TBDAirline.Controllers
 
             List<string> emails = new List<string>();
             emails.Add(newPassenger.Email);
-            EmailHandler emailUseCase = new EmailHandler();
-            emailUseCase.SendEmail(emails, trackingID);
+            //EmailHandler emailUseCase = new EmailHandler();
+            EmailHandler.SendEmail(emails, trackingID);
 
 
             ReservationView newReservationView = new ReservationView();

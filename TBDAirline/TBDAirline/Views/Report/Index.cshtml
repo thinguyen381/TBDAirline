@@ -1,0 +1,55 @@
+﻿@model TBDAirline.Models.Report
+
+<div class="container border" style="padding:20px">
+
+    <form asp-action="Index">
+
+        <div class="form-group row" style="padding:5px">
+            <div class="col-2">
+                Please enter flight ID:
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for=FlightID class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row" style="padding:5px">
+            <div class="col-3">
+                <input type="submit" value="Get Passenger List" class="btn btn-primary" />
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@if(@Model != null &&  @Model.Passengers != null && @Model.Passengers.Count >0){
+    <h3>List of passenger:</h3>
+      <br />  
+   <div class="container border" style="padding:20px">
+
+        <table>
+            <thead>
+                <tr>
+                    <td width="30%">Name</td>
+                    <td width="30%">Email</td>
+                    <td width="30%">Phone number</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (Passenger p in Model.Passengers)
+                    {
+                        <tr>
+                            <td>@p.PassengerName</td>
+                            <td>@p.Email</td>
+                            <td>@p.PhoneNumber</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+      <br /> 
+    <h5>Total number of passengers: @Model.Passengers.Count</h5>
+}
