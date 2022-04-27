@@ -1,0 +1,44 @@
+﻿@model TBDAirline.Models.OrderHistory
+
+
+@if(@Model != null &&  @Model.OrderDetails != null && @Model.OrderDetails.Count >0){
+    <h3>List of reservations:</h3>
+      <br />  
+   <div class="container border" style="padding:20px">
+
+        <table class ="table">
+            <thead>
+                <tr>
+                    <td width="10%">Passenger</td>
+                    <td width="10%">Payment</td>
+                    <td width="30%">Departure Flight</td>
+                    <td width="30%">Returning Flight</td>
+                    <td width="20%">Status</td>
+             
+                
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (OrderDetail o in Model.OrderDetails)
+                    {
+                        <tr>
+                            <td>@o.Passenger.PassengerName</td>
+                            <td>$@o.Payment.TotalAmount</td>
+                            <td>From @o.FromAirport.AirportName <br /> to @o.ToAirport.AirportName <br /> depart on @o.DepartFlight.DepartureTime <br /> arrive on @o.DepartFlight.ArrivalTime</td>
+                            <td>From @o.ToAirport.AirportName <br /> to @o.FromAirport.AirportName <br /> depart on @o.ReturnFlight.DepartureTime <br /> arrive on @o.ReturnFlight.ArrivalTime</td>
+
+                            @if(@o.Reservation.isCanceled==false) { <td>@Html.ActionLink("Active. Click to cancel","Cancel", new {id = o.Reservation.ReservationID}) </td>}
+                           else {<td>Canceled</td>}
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+ 
+}
+
+else {
+    <h5>No reservation found.</h5>
+}
