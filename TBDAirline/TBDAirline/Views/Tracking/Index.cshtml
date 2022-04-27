@@ -25,14 +25,30 @@
 
 @if (Model?.DepartureFlight != null)
 {
-    <h3>Total Amount:   $@Model.Payment.TotalAmount </h3>
-    <h3>Passenger: </h3>
-    <div> Name: @Model.Passenger.PassengerName </div>
+    <h5>Total Amount:   $@Model.Payment.TotalAmount </h5>
+    <h5>Passenger: </h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col-1">Name</th>
+                <th class="col-1">Email</th>
+                <th class="col-1">Phone number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col-1">@Model.Passenger.PassengerName</td>
+                <td class="col-1">@Model.Passenger.Email</td>
+                <td class="col-1">@Model.Passenger.PhoneNumber</td>
+            </tr>
+        </tbody>
+    </table>
+  @*  <div> Name: @Model.Passenger.PassengerName </div>
     <div> Email: @Model.Passenger.Email </div>
-    <div> Phone number: @Model.Passenger.PhoneNumber</div>
-   
+    <div> Phone number: @Model.Passenger.PhoneNumber</div>*@
 
-    <h3>Departs:</h3>
+
+    <h5>Departure Flight:</h5>
     <table class="table">
         <thead>
             <tr>
@@ -55,7 +71,7 @@
 
 @if (Model?.ReturnFlight != null)
 {
-    <h3>Returns:</h3>
+    <h5>Returning Flight:</h5>
     <table class="table">
         <thead>
             <tr>

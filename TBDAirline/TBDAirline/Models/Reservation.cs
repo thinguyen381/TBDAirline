@@ -9,5 +9,6 @@
         public int? ReturnFlightID { get; set; }
         public int? AccountID { get; set; }
         public int? PassengerID { get; set; }
+        public bool? isCanceled { get; set; }
     }
 }
