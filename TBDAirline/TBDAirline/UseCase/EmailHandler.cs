@@ -4,9 +4,9 @@ using TBDAirline.Models;
 
 namespace TBDAirline.UseCase
 {
-    public class EmailHandler
+    public static class EmailHandler
     {
-        public bool SendEmail(List<string> emails, Guid tracking)
+        public static bool SendEmail(List<string> emails, Guid tracking)
         {
             bool success = true;
             try
