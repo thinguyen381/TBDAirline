@@ -26,7 +26,9 @@ namespace TBDAirline.Controllers
             {
                 OrderDetails = new List<OrderDetail>()
             };
-                                    
+
+            List<Airport> airports = _context.Airport.ToList();
+            
             foreach (Reservation reservation in reservations)
             {
                 OrderDetail orderDetail = new OrderDetail();
@@ -35,8 +37,8 @@ namespace TBDAirline.Controllers
                 orderDetail.Payment = _context.Payment.Where (p => p.PaymentID == reservation.PaymentID).FirstOrDefault();
                 orderDetail.DepartFlight = _context.Flight.Where(f => f.FlightID == reservation.DepartFlightID).FirstOrDefault();
                 orderDetail.ReturnFlight = _context.Flight.Where(f => f.FlightID == reservation.ReturnFlightID).FirstOrDefault();
-                orderDetail.FromAirport = _context.Airport.Where(a => a.AirportID == orderDetail.DepartFlight.FromID).FirstOrDefault();
-                orderDetail.ToAirport = _context.Airport.Where(a => a.AirportID == orderDetail.DepartFlight.ToID).FirstOrDefault();
+                orderDetail.FromAirport = airports.Where(a => a.AirportID == orderDetail.DepartFlight.FromID).FirstOrDefault();
+                orderDetail.ToAirport = airports.Where(a => a.AirportID == orderDetail.DepartFlight.ToID).FirstOrDefault();
                 
                 orderHistory.OrderDetails.Add(orderDetail);
             }
