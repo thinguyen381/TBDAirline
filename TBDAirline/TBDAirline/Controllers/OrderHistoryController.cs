@@ -11,6 +11,11 @@ namespace TBDAirline.Controllers
         {
             _context = context;
         }
+
+        /// <summary>
+        /// Collects information on orders to be displayed in the OrderHistory View.
+        /// </summary>
+        /// <returns>View()</returns>
         public IActionResult Index()
         {
 
@@ -43,7 +48,11 @@ namespace TBDAirline.Controllers
 
             return View(orderHistory);
         }
-
+            /// <summary>
+            /// Cancels a reservation.
+            /// </summary>
+            /// <param name="int"></param>
+            /// <returns>RedirectToAction</returns>
         public IActionResult Cancel(int id)
         {
             Reservation reservation = _context.Reservation.Where(r => r.ReservationID == id).First();

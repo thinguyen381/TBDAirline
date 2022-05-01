@@ -12,6 +12,10 @@ namespace TBDAirline.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Creates a search model and displays the results in a view.
+        /// </summary>
+        /// <returns>View()</returns>
         [HttpGet]
         public IActionResult Index()
         {
@@ -34,7 +38,11 @@ namespace TBDAirline.Controllers
             //return View(searchModel);
         }
 
-        // Search Method
+        /// <summary>
+        /// Finds available reservations based on search quiries
+        /// </summary>
+        /// <param name="SearchModel"></param>
+        /// <returns> View() </returns>
         [HttpPost]
         public IActionResult Index(SearchModel searchModel)
         {

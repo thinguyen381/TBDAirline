@@ -1,5 +1,8 @@
 ﻿namespace TBDAirline.Models
 {
+    ///<summary>
+    /// Collects information on Reservations collected for a flight.
+    /// </summary>
     public class Report
     {
   

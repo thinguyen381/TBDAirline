@@ -14,12 +14,19 @@ namespace TBDAirline.Controllers
             _context = context;
         }
 
+        /// <summary> Displays view of class Report </summary>
+        /// <returns> View() </returns>
         [HttpGet]
         public IActionResult Index()
         {
              return View();
         }
 
+        /// <summary>
+        /// Creates a report and returns the View of created report.
+        /// </summary>
+        /// <param name="int"></param>
+        /// <returns>View()</returns>
         [HttpPost]
         public IActionResult Index(int FlightID)
         {

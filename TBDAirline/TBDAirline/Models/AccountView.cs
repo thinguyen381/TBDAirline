@@ -1,7 +1,7 @@
 ﻿namespace TBDAirline.Models
 {
     /// <summary>
-    /// 
+    /// Collects and holds information for the creation of a new account.
     /// </summary>
     public class AccountView
     {

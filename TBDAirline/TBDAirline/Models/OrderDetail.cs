@@ -1,5 +1,8 @@
 ﻿namespace TBDAirline.Models
 {
+    /// <summary>
+    /// OrderDetail collects necessary information for proper Account reports
+    /// </summary>
     public class OrderDetail
     {
         public Reservation Reservation { get; set; }

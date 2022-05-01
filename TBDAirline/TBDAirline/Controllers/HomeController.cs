@@ -3,7 +3,7 @@ using System.Diagnostics;
 using TBDAirline.Models;
 
 namespace TBDAirline.Controllers
-{ // I don't know what any of this does --Codi
+{ // These are all just links and don't need to be notated
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

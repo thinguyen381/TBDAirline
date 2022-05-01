@@ -15,9 +15,7 @@ namespace TBDAirline.Controllers
         /// <summary>
         /// Index creates a reservation and adds it to the database.
         /// </summary>
-        ///<returns>
-        ///View
-        ///</returns>
+        /// <returns>View()</returns>
         public IActionResult Index()
         {
             Passenger newPassenger = new Passenger
