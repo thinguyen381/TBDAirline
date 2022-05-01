@@ -22,10 +22,39 @@
     </form>
 </div>
 
-@if(@Model != null &&  @Model.Passengers != null && @Model.Passengers.Count >0){
+@if (@Model != null && @Model.Passengers != null)
+{
+    <h3>Flight information:</h3>
+    <div class="container border" style="padding:20px">
+
+        <table>
+            <thead>
+                <tr>
+                    <td width="20%">Flight ID</td>
+                    <td width="20%">From</td>
+                    <td width="20%">To</td>
+                    <td width="20%">Departure time</td>
+                    <td width="20%">Arrival time</td>
+
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td width="20%">@Model.Flight.FlightID</td>
+                        <td width="20%">@Model.FromAirport.AirportName</td>
+                        <td width="20%">@Model.ToAirport.AirportName</td>
+                        <td width="20%">@Model.Flight.DepartureTime</td>
+                        <td width="20%">@Model.Flight.ArrivalTime</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <br />
     <h3>List of passenger:</h3>
-      <br />  
-   <div class="container border" style="padding:20px">
+    <div class="container border" style="padding:20px">
 
         <table>
             <thead>
@@ -50,6 +79,9 @@
             </tbody>
         </table>
     </div>
-      <br /> 
+    <br />
     <h5>Total number of passengers: @Model.Passengers.Count</h5>
+}
+else if(@Model != null && @Model.Error != null){
+    <h3>@Model.Error</h3>
 }
