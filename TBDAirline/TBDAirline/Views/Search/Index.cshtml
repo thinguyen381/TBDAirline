@@ -31,7 +31,12 @@
                     @Html.DropDownList("ToCity", new SelectList(Model.Cities))
                 </td>
             </tr>
-
+            <tr>
+                <td>Round Trip:</td>
+                <td>
+                    @Html.EditorFor(Model => Model.IsRoundTrip)
+                </td>
+            </tr>
 
         </table>
         <div>
@@ -43,7 +48,7 @@
 @*Error handling*@
 @if (@Model.isError)
 {
-    if (@Model.FromDate < DateTime.Now.AddDays(-1) || @Model.ToDate < @Model.FromDate || @Model.FromCity == @Model.ToCity)
+    if (@Model.FromDate < DateTime.Now.AddDays(-1) || (@Model.IsRoundTrip && @Model.ToDate < @Model.FromDate) || @Model.FromCity == @Model.ToCity)
     {
         if (@Model.FromDate < DateTime.Now.AddDays(-1))
         {
@@ -62,18 +67,13 @@
 
     else
     {
-        if (@Model.DepartureFlight.FirstOrDefault() == null && @Model.ReturnFlight.FirstOrDefault() == null)
+        if (@Model.DepartureFlight.FirstOrDefault() == null)
         {
             <div>There is no flights for selected dates.</div>
         }
-        else if (@Model.DepartureFlight.FirstOrDefault() != null && @Model.ReturnFlight.FirstOrDefault() == null)
+        if (@Model.IsRoundTrip && @Model.ReturnFlight.FirstOrDefault() == null)
         {
-            <div>There is no flights for selected returning dates</div>
+             <div>There is no flights for selected returning dates</div>
         }
-        else if (@Model.DepartureFlight.FirstOrDefault() == null && @Model.ReturnFlight.FirstOrDefault() != null)
-        {
-            <div>There is no flights for selected departure dates</div>
-        }
-
     }
 }

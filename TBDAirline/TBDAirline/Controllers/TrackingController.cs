@@ -39,6 +39,7 @@ namespace TBDAirline.Controllers
                 To = destinations.FirstOrDefault(d => d.AirportID == departFlight.ToID)?.AirportName,
                 Payment = _context.Payment.Where(p => p.PaymentID == order.PaymentID).First(),
                 Passenger = _context.Passenger.Where(p => p.PassengerID == order.PassengerID).First(),
+                IsCanceled = order.isCanceled ?? false 
 
             };
 

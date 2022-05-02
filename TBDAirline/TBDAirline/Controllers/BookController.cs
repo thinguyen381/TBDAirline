@@ -26,7 +26,7 @@ namespace TBDAirline.Controllers
             Flight departFlight = DepartFlightID != null ? _context.Flight.First(f => f.FlightID == DepartFlightID) : null;
             Flight returnFlight = ReturnFlightID != null ? _context.Flight.First(f => f.FlightID == ReturnFlightID) : null;
             string fromCity = _context.Airport.Where(f => f.AirportID == departFlight.FromID).First().AirportName.ToString();
-            string toCity = _context.Airport.Where(f => f.AirportID == returnFlight.FromID).First().AirportName.ToString();
+            string toCity = _context.Airport.Where(f => f.AirportID == departFlight.ToID).First().AirportName.ToString();
 
 
             Book book = new Book()
@@ -55,14 +55,6 @@ namespace TBDAirline.Controllers
 
             if (HttpContext.User.Identity.IsAuthenticated) return RedirectToAction("Index", "Passenger");
             else return RedirectToAction("Login", "Account");
-
-
-
-            //if (loginFirst)
-            //return RedirectToAction("Login", "Account");
-            //else
-                //return RedirectToAction("Index", "Payment");
         }
-
     }
 }

@@ -46,11 +46,6 @@ namespace TBDAirline.Controllers
                 report.ToAirport = _context.Airport.Where(a => a.AirportID == report.Flight.ToID).FirstOrDefault();
             }
 
-
-
-
-
-
             return View(report);
         }
     }

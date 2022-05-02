@@ -111,6 +111,7 @@ namespace TBDAirline.Controllers
         /// <returns>View()</returns>
         public async Task<IActionResult> Logout()
         {
+            HttpContext.Session.Clear();
             await HttpContext.SignOutAsync("MyCookieAuth");
             return RedirectToAction("Index", "Search");
         }

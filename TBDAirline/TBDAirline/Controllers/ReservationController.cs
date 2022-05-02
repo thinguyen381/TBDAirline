@@ -39,13 +39,15 @@ namespace TBDAirline.Controllers
             // Create tracking number
             var trackingID = Guid.NewGuid();
 
+            // Get ReturnFlightID from session or assign to null if not existed
+            int? returnFlightID = this.HttpContext.Session.GetInt32("ReturnFlightID") == 0 ? (int?)null : this.HttpContext.Session.GetInt32("ReturnFlightID");
             Reservation newReservation = new Reservation()
             {
                 TrackingID = trackingID,
                 PassengerID = passengerID,
                 PaymentID = this.HttpContext.Session.GetInt32("PaymentID"),
                 DepartFlightID = this.HttpContext.Session.GetInt32("DepartFlightID"),
-                ReturnFlightID = this.HttpContext.Session.GetInt32("ReturnFlightID"),
+                ReturnFlightID = returnFlightID,
                 AccountID = accountID,
                 isCanceled = false
 

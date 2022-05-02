@@ -54,16 +54,21 @@ namespace TBDAirline.Controllers
             List<Flight> DepartureFlight = _context.Flight.Where(f => f.FromID == fromID && f.ToID == toID
                                                             && f.DepartureTime > searchModel.FromDate
                                                             && f.DepartureTime < searchModel.FromDate.AddDays(1)).ToList();
-
-            List<Flight> ReturnFlight = _context.Flight.Where(f => f.FromID == toID && f.ToID == fromID
-                                                            && f.DepartureTime > searchModel.ToDate
-                                                            && f.DepartureTime < searchModel.ToDate.AddDays(1)).ToList();
             searchModel.DepartureFlight = DepartureFlight;
-            searchModel.ReturnFlight = ReturnFlight;
+
+            if (searchModel.IsRoundTrip)
+            {
+                List<Flight> ReturnFlight = _context.Flight.Where(f => f.FromID == toID && f.ToID == fromID
+                                                                && f.DepartureTime > searchModel.ToDate
+                                                                && f.DepartureTime < searchModel.ToDate.AddDays(1)).ToList();
+                searchModel.ReturnFlight = ReturnFlight;
+            }
 
             //Error handling
-            if (searchModel.DepartureFlight.FirstOrDefault() == null || searchModel.ReturnFlight.FirstOrDefault() == null
-                || searchModel.FromDate < DateTime.Now.AddDays(-1) || searchModel.ToDate < searchModel.FromDate)
+            if (searchModel.DepartureFlight.FirstOrDefault() == null 
+                //|| searchModel.ReturnFlight.FirstOrDefault() == null
+                || searchModel.FromDate < DateTime.Now.AddDays(-1) 
+                || (searchModel.IsRoundTrip && searchModel.ToDate < searchModel.FromDate))
             {
                 searchModel.isError = true;
                 searchModel.Cities = new List<string> { "" };
@@ -79,8 +84,6 @@ namespace TBDAirline.Controllers
 
             return View("Index1", searchModel);
         }
-
-
-        
+       
     }
 }

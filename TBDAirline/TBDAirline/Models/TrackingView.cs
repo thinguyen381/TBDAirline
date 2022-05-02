@@ -13,6 +13,6 @@
 
         public Passenger Passenger { get; set; }   
         public Payment Payment { get; set; }   
-
+        public bool IsCanceled { get; set; }
     }
 }

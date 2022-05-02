@@ -25,6 +25,8 @@
 
 @if (Model?.DepartureFlight != null)
 {
+    <h5>Reservation Status: @if(@Model.IsCanceled) { <span>Canceled</span>} 
+                            else {<span>Active</span>}</h5>
     <h5>Total Amount:   $@Model.Payment.TotalAmount </h5>
     <h5>Passenger: </h5>
     <table class="table">
@@ -43,9 +45,7 @@
             </tr>
         </tbody>
     </table>
-  @*  <div> Name: @Model.Passenger.PassengerName </div>
-    <div> Email: @Model.Passenger.Email </div>
-    <div> Phone number: @Model.Passenger.PhoneNumber</div>*@
+
 
 
     <h5>Departure Flight:</h5>
