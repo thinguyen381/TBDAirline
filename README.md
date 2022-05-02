@@ -75,3 +75,9 @@ TODO:
   
   Adding round trip/one way option to flight schedule
     one way flight will not show a return flight.
+
+***Update May 2 ***
+ 1. Added Round Trip option for Search page (a small fix only because returning date still shows for both cases: one way and round trip)
+ 2. Made selecting flight is a required task (to handle error for Book page)
+ 3. Removed OrderHistory from admin page
+ 4. Added Flight Status (Active/ Canceled) for flight tracked on Tracking page
