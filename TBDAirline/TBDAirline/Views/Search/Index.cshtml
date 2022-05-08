@@ -54,7 +54,7 @@
         {
             <div>- Departure date should not be in the past.</div>
         }
-        if (@Model.ToDate < @Model.FromDate)
+        if (@Model.IsRoundTrip && @Model.ToDate < @Model.FromDate)
         {
             <div>- Returning date should be after Departure date.</div>
         }

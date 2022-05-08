@@ -18,8 +18,7 @@ namespace TBDAirline.Models
         public List<string> Cities { get; set; }
         public List<Flight> DepartureFlight { get; set; }
         public List<Flight> ReturnFlight { get; set; }
-        public int DepartFlightID { get; set; }
-        public int ReturnFlightID { get; set; }
+
         public bool IsRoundTrip { get; set; }
         public bool isError { get; set; }
     }
