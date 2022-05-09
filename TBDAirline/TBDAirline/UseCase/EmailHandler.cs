@@ -16,7 +16,7 @@ namespace TBDAirline.UseCase
                 {
                     var fromAddress = new MailAddress("cs380group5@gmail.com", "TBD Airline");
                     var toAddress = new MailAddress(email, "Customer");
-                    const string fromPassword = "ComSci380";
+                    const string fromPassword = "ComSci380@";
                     const string subject = "Your Flight Reservation Confirmation";
                     string body = $"TrackingID: {tracking}. To track your flight, go to http://tbdairline.azurewebsites.net/Tracking";
 
